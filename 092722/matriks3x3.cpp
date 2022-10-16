@@ -16,22 +16,22 @@ int main(){
     }
     cout<<endl;
     cout<<"Matriks B"<<endl;
-    for(int i = 0; i <= 2; i++){
-    	for(int j = 0; j <= 2; j++){
+    for(i = 0; i <= 2; i++){
+    	for(j = 0; j <= 2; j++){
         	cout << b[i][j] << " ";
     	}
     	cout<<endl;
     }
-	cout<<"\n===Penjumlahan matriks==="<<endl;
-	for(int i = 0; i < 3; i++){
-    	for(int j = 0; j < 3; j++){
+	cout<<"\n===Penjumlahan matriks===\n";
+	for(i = 0; i < 3; i++){
+    	for(j = 0; j < 3; j++){
         	cout << a[i][j]+b[i][j] << " ";
     	}
     	cout<<endl;
     }
-    cout<<"\n===Pengurangan matriks==="<<endl;
-	for(int i = 0; i < 3; i++){
-    	for(int j = 0; j < 3; j++){
+    cout<<"\n===Pengurangan matriks===\n";
+	for(i = 0; i < 3; i++){
+    	for(j = 0; j < 3; j++){
         	cout << a[i][j]-b[i][j] << " ";
     	}
     	cout<<endl;
