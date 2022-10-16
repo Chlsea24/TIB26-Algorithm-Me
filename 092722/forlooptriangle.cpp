@@ -25,8 +25,9 @@ int main(){
 				cout<<"*";
 			}
 		}
-		cout<<" \n\n"<<endl;
+		cout<<endl;
 	}
+	cout<<endl;
 	
 	for (i=1; i<=uk; i++){
 		for (j=1; j<=uk; j++){
