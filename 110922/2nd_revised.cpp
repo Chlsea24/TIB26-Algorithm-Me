@@ -4,53 +4,58 @@ using namespace std;
 
 main(){
 	
-	//list barang
+	//list kode
 	string A="A001";
 	string B="B001";
 	string C="C001";
 	string D="D001";
 	string E="D002";
+
+	//list barang
+	string barang[5]={"Buku", "Pensil", "Pulpen", "Penghapus", "Spidol"};
 	
+	lembar: //kerja
 	int jmlh, byr, hrga, total, grand, disc, ppn, change;
 	char trus;
 	char nota[4];
-	char kode[4];
-	
-	lembar: //kerja
+	string kode;
+
 	cout<<"[INPUT]"<<endl;
 	cout<<"No. Nota\t: ", cin>>nota;
 	const char* Z = nota;
 	string tumbal(Z);
 
 	cout<<"Kode Barang\t: ", cin>>kode;
+	if (kode!= A && kode!= B && kode!= C && kode!= D && kode!= E){
+		cout<<"Please input the correct code."<<endl<<endl;
+		cout<<"Silahkan coba lagi."<<endl;
+		goto lembar;
+	} 
+
 	cout<<"Jumlah Barang\t: ", cin>>jmlh;
 	cout<<"Jumlah Uang\t: ", cin>>byr;
 	cout<<endl<<endl;
 	
 	//FAKTUR
-	cout<<"[REJEKI SELALU]"<<endl;
+	cout<<"=======[REJEKI SELALU]======="<<endl;
+	cout<<"           [FAKTUR]          "<<endl;
 	cout<<"No. Nota\t: "<< tumbal << endl;
 	cout<<"Kode Barang\t: "<<kode<<endl;
 	
 	cout<<"Nama Barang\t: ";
 	if(kode ==A){
-		cout<<"Buku"<<endl;
+		cout<<barang[0]<<endl;
 	} else {
         if (kode == B){
-            cout<<"Pensil"<<endl;
+            cout<<barang[1]<<endl;
         } else {
             if (kode == C){
-                cout<<"Pulpen"<<endl;
+                cout<<barang[2]<<endl;
             } else {
                 if (kode == D){
-                    cout<<"Penghapus"<<endl;
+                    cout<<barang[3]<<endl;
                 } else {
-                    if (kode == E){
-                        cout<<"Spidol"<<endl;
-                    } else {
-                        cout <<"Please input the correct code"<<endl<<endl;
-                        goto lembar;
-                    }
+                    cout<<barang[4]<<endl;
                 }
             }
         }
@@ -83,13 +88,15 @@ main(){
     }
     
 	cout<<"Jumlah Beli\t: "<<jmlh<<endl;
+	cout<<"============================="<<endl;
 	cout<<"Total Harga\t: ";
 	total = jmlh*hrga;
 	cout<<total<<endl;
-	
+	cout<<"============================="<<endl;
 	cout<<"Bayar\t\t: "<<byr<<endl;
 	if (byr<total){
 		cout <<"Maaf, uang anda kurang "<<total-byr<<endl<<endl;
+		cout<<"Silahkan coba lagi."<<endl;
 		goto lembar;
 	}
 	
@@ -131,19 +138,26 @@ main(){
             }
         }
     }
+   
 	cout<<" ("<<ppn<<")"<<endl;	
-	
+	cout<<"============================="<<endl;
 	grand = total + ppn - disc;
-	cout<<"Grand total\t : "<< grand << endl;
+	cout<<"Grand total\t : "<< grand <<endl<<endl;
 
 	change = byr - grand;
 	if (byr < grand){
-		cout<<"Maaf, uang anda kurang "<<grand-byr<<endl;
+		cout<<"Maaf, uang anda kurang "<<grand-byr<<endl<<endl;
+		cout<<"Silahkan coba lagi."<<endl;
+		goto lembar;
 	} else {
-		cout<< "Kembalian\t : "<<change<<endl;
+		if (change == 0){
+			cout<<"Uang anda adalah uang pas. \nTerima kasih telah berbelanja!"<<endl;
+		} else {
+			cout<<"Kembalian\t : "<<change<<endl;
+		}
 	}
 
-	cout<<"Apakah anda ingin berbelanja lagi? (Y/T)", cin>>trus;
+	cout<<"\nApakah anda ingin berbelanja lagi? (Y/T)", cin>>trus;
 	if (toupper(trus) == 'Y'){
 		cout<<endl;
 		goto lembar;

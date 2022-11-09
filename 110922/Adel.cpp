@@ -14,11 +14,15 @@ int main()
 	string kode;
 	int nonota;
 	int jumlahbeli;
-	int bayar;
-	int totalharga;
-	int diskon;
+	int bayar, totalharga, diskon, ppn, grandtotal;
+	char pilih;
 	
-	nota data[5];
+	cout<<"                              Rejeki Selalu                             "<<endl;
+	cout<<"------------------------------------------------------------------------"<<endl;
+A :	cout<<"No. Nota : ";cin>>nonota;
+	
+	//unsur barang
+	struct nota data[5];
 	
 	char x[5] = "A001";
 	char X[20] = "Buku";
@@ -49,49 +53,112 @@ int main()
 	strcpy(data[4].kodebarang,b);
 	strcpy(data[4].namabarang,B);
 	data[4].harga=8000;
-
-	h:
-    cout<<"Kode barang : ";cin>>kode;
-	cout<<"Jumlah beli : ";cin>>jumlahbeli;
-	if(kode == data[0].kodebarang)
+	
+h:	cout<<"Kode barang : ";cin>>kode;
+    cout<<"Jumlah beli : ";cin>>jumlahbeli;
+    
+    //nama & harga barang
+	if(kode==data[0].kodebarang)
 	{
 		cout<<"Nama barang : "<<data[0].namabarang<<endl;
 		cout<<"Harga satuan : "<<data[0].harga<<endl;
 		totalharga = jumlahbeli*data[0].harga;
 		cout<<"Total harga : "<<totalharga<<endl;
-	}
-    else if(kode == data[1].kodebarang)
+    }
+	else
 	{
-		cout<<"Nama barang : "<<data[1].namabarang<<endl;
-		cout<<"Harga satuan : "<<data[1].harga<<endl;
-		totalharga = jumlahbeli*data[1].harga;
-		cout<<"Total harga : "<<totalharga<<endl;
+	    if(kode==data[1].kodebarang)
+	    {
+		    cout<<"Nama barang : "<<data[1].namabarang<<endl;
+		    cout<<"Harga satuan : "<<data[1].harga<<endl;
+		    totalharga = jumlahbeli*data[1].harga;
+		    cout<<"Total harga : "<<totalharga<<endl;
+	    }
+	   else
+	   {
+	       if(kode==data[2].kodebarang)
+	        {
+		        cout<<"Nama barang : "<<data[2].namabarang<<endl;
+		        cout<<"Harga satuan : "<<data[2].harga<<endl;
+		        totalharga = jumlahbeli*data[2].harga;
+		        cout<<"Total harga : "<<totalharga<<endl;
+	        }
+	        else
+	        {
+	            if(kode==data[3].kodebarang)
+	            {
+		            cout<<"Nama barang : "<<data[3].namabarang<<endl;
+		            cout<<"Harga satuan : "<<data[3].harga<<endl;
+		            totalharga = jumlahbeli*data[3].harga;
+		            cout<<"Total harga : "<<totalharga<<endl;
+	            }
+	            else
+	            {
+	                if(kode==data[4].kodebarang)
+	                {
+		                cout<<"Nama barang : "<<data[4].namabarang<<endl;
+		                cout<<"Harga satuan : "<<data[4].harga<<endl;
+		                totalharga = jumlahbeli*data[4].harga;
+		                cout<<"Total harga : "<<totalharga<<endl;
+	                }
+	                else
+	                {
+	                    cout<<"Kode barang yang Anda masukkan tidak valid."<<endl;
+	                    cout<<"Silakan input ulang kode barang."<<endl;
+	                    goto h;
+	                }
+	            }
+	        }
+	   }
 	}
-	else if(kode == data[2].kodebarang)
+	cout<<"------------------------------------------------------------------------"<<endl;
+	
+	cout<<"Bayar : ";cin>>bayar;
+	cout<<"------------------------------------------------------------------------"<<endl;
+	
+	//diskon
+	if(totalharga>=50000)
 	{
-		cout<<"Nama barang : "<<data[2].namabarang<<endl;
-		cout<<"Harga satuan : "<<data[2].harga<<endl;
-		totalharga = jumlahbeli*data[2].harga;
-		cout<<"Total harga : "<<totalharga<<endl;
+		diskon = totalharga*5/100;
+		cout<<"Diskon : "<<diskon<<endl;
 	}
-	else if(kode == data[3].kodebarang)
+	else if(totalharga>=500000)
 	{
-		cout<<"Nama barang : "<<data[3].namabarang<<endl;
-		cout<<"Harga satuan : "<<data[3].harga<<endl;
-		totalharga = jumlahbeli*data[3].harga;
-		cout<<"Total harga : "<<totalharga<<endl;
-	}
-	else if(kode == data[4].kodebarang)
-	{
-		cout<<"Nama barang : "<<data[4].namabarang<<endl;
-		cout<<"Harga satuan : "<<data[4].harga<<endl;
-		totalharga = jumlahbeli*data[4].harga;
-		cout<<"Total harga : "<<totalharga<<endl;
+		diskon = totalharga*10/100;
+		cout<<"Diskon : "<<diskon<<endl;
 	}
 	else
 	{
-	    cout<<"Kode barang yang Anda masukkan tidak valid."<<endl;
-	    cout<<"Silakan input ulang kode barang."<<endl;
-	    goto h;
+		diskon = totalharga*0/100;
+		cout<<"Diskon : "<<diskon<<endl;
 	}
+	
+	//PPN
+	if((totalharga<50000) && (totalharga>=0))
+	{
+	    ppn = totalharga*2/100;
+	    cout<<"PPN : "<<ppn<<endl;
+	}
+	else if((totalharga<500000) && (totalharga>=50000))
+	{
+	    ppn = totalharga*5/100;
+	    cout<<"PPN : "<<ppn<<endl;
+	}
+	else if((totalharga<5000000) && (totalharga>=500000))
+	{
+	    ppn = totalharga*10/100;
+	    cout<<"PPN : "<<ppn<<endl;
+	}
+	else
+	{
+	    ppn = totalharga*15/100;
+	    cout<<"PPN : "<<ppn<<endl;
+	}
+	
+	cout<<"------------------------------------------------------------------------"<<endl;
+	
+	grandtotal = totalharga+ppn-diskon;
+	cout<<"Grand Total : "<<grandtotal<<endl;
+	cout<<"Kembalian : "<<bayar-grandtotal<<endl;
+    return 0;
 }
