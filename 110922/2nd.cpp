@@ -11,21 +11,25 @@ main(){
 	string D="D001";
 	string E="D002";
 	
-	int jmlh, byr, hrga, total, grand, disc;
+	int jmlh, byr, hrga, total, grand, disc, ppn, change;
+	char trus;
 	char nota[4];
 	char kode[4];
 	
 	lembar: //kerja
 	cout<<"[INPUT]"<<endl;
 	cout<<"No. Nota\t: ", cin>>nota;
+	const char* Z = nota;
+	string tumbal(Z);
+
 	cout<<"Kode Barang\t: ", cin>>kode;
 	cout<<"Jumlah Barang\t: ", cin>>jmlh;
 	cout<<"Jumlah Uang\t: ", cin>>byr;
-	cout<<endl;
+	cout<<endl<<endl;
 	
 	//FAKTUR
 	cout<<"[REJEKI SELALU]"<<endl;
-	cout<<"No. Nota\t: "<<nota<<endl;
+	cout<<"No. Nota\t: "<< tumbal << endl;
 	cout<<"Kode Barang\t: "<<kode<<endl;
 	
 	cout<<"Nama Barang\t: ";
@@ -69,7 +73,7 @@ main(){
 	
 	cout<<"Bayar\t\t: "<<byr<<endl;
 	if (byr<total){
-		cout <<"Maaf, uang anda kurang."<<endl<<endl;
+		cout <<"Maaf, uang anda kurang "<<total-byr<<endl<<endl;
 		goto lembar;
 	}
 	
@@ -77,17 +81,49 @@ main(){
 	if (total >= 500000){
 		cout<<"10% ";
 		disc = total*10/100;
-		cout<<"( "<<disc<<" )"<<endl;
 	} else if (total >= 50000){
-		cout<<"5 ";
+		cout<<"5% ";
 		disc = total*5/100;
-		cout<<"( "<<disc<<" )"<<endl;
 	} else {
-		cout << "0%" <<endl;
+		cout << "0%";
+		disc = 0;
 	}
+	cout<<" ("<<disc<<")"<<endl;
 	
-	cout<<"PPN\t: ";
+	cout<<"PPN\t\t: ";
+	if (total>=0 && total<50000){
+		cout<<"2% ";
+		ppn = total*2/100;
+	} else if (total>= 50000 && total<500000) {
+		cout<<"5% ";
+		ppn = total*5/100;
+	} else if (total>=500000 && total<5000000){
+		cout<<"10% ";
+		ppn = total*10/100;
+	} else if (total>= 5000000){
+		cout<<"15% ";
+		ppn = total*15/100;
+	} else {
+		cout<<"total harganya minus?"<<endl;
+	}
+	cout<<" ("<<ppn<<")"<<endl;	
 	
-	
-	
+	grand = total + ppn - disc;
+	cout<<"Grand total\t : "<< grand << endl;
+
+	change = byr - grand;
+	if (byr < grand){
+		cout<<"Maaf, uang anda kurang "<<grand-byr<<endl;
+	} else {
+		cout<< "Kembalian\t : "<<change<<endl;
+	}
+
+	cout<<"Apakah anda ingin berbelanja lagi? (Y/T)", cin>>trus;
+	if (toupper(trus) == 'Y'){
+		cout<<endl;
+		goto lembar;
+	} else {
+		cin.get();
+	}
+
 }
