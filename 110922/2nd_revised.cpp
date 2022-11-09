@@ -2,6 +2,17 @@
 #include <cstring>
 using namespace std;
 
+void menu(){
+	cout<<"========================="<<endl;
+	cout<<"=REJEKI SELALU item list="<<endl;
+	cout<<"Silahkan pilih barang yang ingin dibeli..."<<endl;
+	cout<<"A001 = Buku\t\t= 10.000"<<endl;
+	cout<<"B001 = Pensil\t\t= 2.000"<<endl;
+	cout<<"C001 = Pulpen\t\t= 5.000"<<endl;
+	cout<<"D001 = Penghapus\t= 1.000"<<endl;
+	cout<<"D002 = Spidol\t\t= 8.000"<<endl<<endl;
+}
+
 main(){
 	
 	//list kode
@@ -25,11 +36,13 @@ main(){
 	const char* Z = nota;
 	string tumbal(Z);
 
+	balik:
+	menu();
 	cout<<"Kode Barang\t: ", cin>>kode;
 	if (kode!= A && kode!= B && kode!= C && kode!= D && kode!= E){
 		cout<<"Please input the correct code."<<endl<<endl;
 		cout<<"Silahkan coba lagi."<<endl;
-		goto lembar;
+		goto balik;
 	} 
 
 	cout<<"Jumlah Barang\t: ", cin>>jmlh;
@@ -97,7 +110,7 @@ main(){
 	if (byr<total){
 		cout <<"Maaf, uang anda kurang "<<total-byr<<endl<<endl;
 		cout<<"Silahkan coba lagi."<<endl;
-		goto lembar;
+		goto balik;
 	}
 	
 	cout<<"Diskon\t\t: ";
