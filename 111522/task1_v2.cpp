@@ -18,7 +18,7 @@ void header(){
 }
 main(){
 	
-	data maha1;
+	struct data maha1;
 	strcpy(maha1.name, "Andi");
 	maha1.nim = 31200019;
 	maha1.uts = 40;
@@ -26,7 +26,7 @@ main(){
 	maha1.prak = 40;
 	maha1.tm = 0;
 	
-	data maha2;
+	struct data maha2;
 	strcpy(maha2.name, "Cinta");
 	maha2.nim = 32190001;
 	maha2.uts = 20;
@@ -34,7 +34,7 @@ main(){
 	maha2.prak = 0;
 	maha2.tm = 100;
 	
-	data maha3;
+	struct data maha3;
 	strcpy(maha3.name, "Dodi");
 	maha3.nim = 33050002;
 	maha3.uts = 80;
@@ -42,7 +42,7 @@ main(){
 	maha3.prak =100;
 	maha3.tm = 0;
 	
-	data maha4;
+	struct data maha4;
 	strcpy(maha4.name, "Budi");
 	maha4.nim = 35210010;
 	maha4.uts = 90;
@@ -50,7 +50,7 @@ main(){
 	maha4.prak = 80;
 	maha4.tm = 0;
 	
-	data maha5;
+	struct data maha5;
 	strcpy(maha5.name, "Eko");
 	maha5.nim = 36210020;
 	maha5.uts = 100;

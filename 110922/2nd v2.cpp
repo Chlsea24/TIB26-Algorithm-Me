@@ -11,9 +11,9 @@ struct item {
 main(){
 	cout<<"Revisi"<<endl;
 	
-	item buku;
+	struct item buku;
 	buku.kode = "A001";
-	buku.nama = "Buku"
+	buku.nama = "Buku";
 	buku.harga = 10000;
 	
 	int jmlh, byr;

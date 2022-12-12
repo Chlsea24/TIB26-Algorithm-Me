@@ -16,7 +16,7 @@ using namespace std;
 
 int main(){
 	//declare
-	int sawal, bunga1, bunga2, adm;
+	int sawal, bunga1, bunga2, adm, sakhir;
 	int s1, s2, s3, s4, s5;
 	
 	cout<<"Saldo awal : ";
@@ -37,6 +37,7 @@ int main(){
 		sakhir = sawal;
 		cout <<"Saldo akhir: "<<sakhir<<endl;
 	}
+	/*
 	cout<<"==="<<endl;
 	if (sakhir < 10000000) {
 		sakhir = (sawal+bunga1)*(sawal-adm);
@@ -45,7 +46,7 @@ int main(){
 		sakhir = (sawal+bunga2)*sawal;
 		cout <<"Saldo akhir: "<<sakhir<<endl;
 	}
-	
+	*/
 	return 0;
 }
 

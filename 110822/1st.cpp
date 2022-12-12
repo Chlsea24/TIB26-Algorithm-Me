@@ -33,7 +33,7 @@ main(){
 	int c = 5;
 	int v = 7;
 	
-	string result = (time < 18) ? (tambah(c,v)) : (kurang(c,v));
+	int result = tambah(c,v) / kurang(c,v);
 	cout << result; 
 	cin.get();
 }
