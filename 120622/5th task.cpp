@@ -9,7 +9,7 @@ struct data{
 };
 
 main(){
-	data mahasiswa[2];
+	struct data mahasiswa[2];
 	mahasiswa[0].nim = 35120010;
 	mahasiswa[0].nama = "Agus";
 	mahasiswa[0].uts = 100;
